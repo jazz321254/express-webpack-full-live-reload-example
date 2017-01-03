@@ -32,6 +32,10 @@ if (isDev) {
         noInfo: true,
         stats: {
             colors: true
+        },
+        watchOptions: {
+            aggregateTimeout: 300,
+            poll: true
         }
     }));
     app.use(webpackHotMiddleware(compiler));

@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 var publicPath = 'http://localhost:3000/';
-var hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
+var hotMiddlewareScript = 'webpack-hot-middleware/client?'+ publicPath +'__webpack_hmr&reload=true';
 
 var devConfig = {
     entry: {

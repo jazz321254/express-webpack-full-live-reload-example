@@ -26,6 +26,10 @@ if (isDev) {
         noInfo: true,
         stats: {
             colors: true
+        },
+        watchOptions: {
+            aggregateTimeout: 300,
+            poll: true
         }
     }));
     app.use(webpackHotMiddleware(compiler));
@@ -39,9 +43,13 @@ if (isDev) {
             open: false,
             ui: false,
             notify: false,
-            proxy: 'localhost:3000',
+            proxy: webpackDevConfig.output.publicPath,
             files: ['./server/views/**'],
-            port: 8080
+            port: 8080,
+	    watchOptions: {
+                "usePolling": true,
+                // "interval": 50
+            }
         });
         console.log('App (dev) is going to be running on port 8080 (by browsersync).');
     });
